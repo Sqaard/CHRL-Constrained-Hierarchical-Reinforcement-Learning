@@ -1,0 +1,9 @@
+label,resume_label,hierarchy,constraints,description,folds,return_mean,sharpe_mean,maxdd_mean,turnover_mean,cash_mean,maxdd_abs,return_over_drawdown,order
+Flat baseline,"No hierarchy
+No constraints",No,No,Flat daily Dirichlet policy with PD execution.,4,0.1594096243184389,1.1431549689563343,-0.14757233770046974,0.01901704987174155,0.04178338104355817,0.14757233770046974,1.080213451941078,0
+Static hierarchy,"Hierarchy
+No constraints",Yes,No,Static hierarchical Dirichlet policy without confidence gates or Top-K routing.,4,0.1026916226298796,0.9865272996569006,-0.1302892693103003,0.017558940189697024,0.19405462678068602,0.1302892693103003,0.7881817372488794,1
+Constrained controller,"No stock hierarchy
+With constraints",Partial,Yes,Risk pacing and confidence constraints without group-aware Top-K hierarchy.,4,0.08190440020005044,1.0547492153483167,-0.06255503459318468,0.006016753632906925,0.4970352926486483,0.06255503459318468,1.3093174791237963,2
+Full CHRL,"Hierarchy
+With constraints",Yes,Yes,"Risk/group/stock hierarchy with confidence gates, event triggers, group-aware Top-K routing.",4,0.10048754091469865,1.093867075683033,-0.07338714833106733,0.00844242386119735,0.41235723157946647,0.07338714833106733,1.3692798153346257,3

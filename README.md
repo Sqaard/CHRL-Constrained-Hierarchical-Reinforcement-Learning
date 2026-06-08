@@ -85,6 +85,24 @@ It is a risk-managed policy, not a pure all-risk bull-market benchmark chaser.
 Fold-level numbers are in [docs/chrl_validation_metrics.csv](docs/chrl_validation_metrics.csv).
 Benchmark comparison is in [docs/chrl_benchmark_comparison.csv](docs/chrl_benchmark_comparison.csv).
 
+## Hierarchy vs Constraints Ablation
+
+To separate the effect of hierarchy from the effect of execution constraints, I compared four walk-forward model families:
+
+| Model Family | Hierarchy | Constraints | What It Tests |
+| --- | --- | --- | --- |
+| Flat baseline | no | no | one flat daily allocation policy |
+| Static hierarchy | yes | no | hierarchy alone, without confidence gates |
+| Constrained controller | partial | yes | risk pacing and confidence controls before full stock hierarchy |
+| Full CHRL | yes | yes | risk/group/stock hierarchy plus constrained execution |
+
+![CHRL hierarchy constraints ablation](docs/chrl_2x2_ablation.png)
+
+The result is useful because it is not a simple "add hierarchy and win" story.
+Hierarchy alone reduced raw performance.
+Constraints alone sharply reduced drawdown and turnover.
+Full CHRL recovered part of the lost return while keeping risk controlled, reaching the best **return / drawdown** ratio in this comparison.
+
 ## Primitive-Level Scientific Result
 
 After training, the model was analyzed with self-supervised primitive discovery.
