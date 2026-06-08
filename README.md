@@ -26,7 +26,7 @@ The **constrained** part is implemented as simple, interpretable guardrails:
 - **Top-K routing:** capital is routed only through the strongest buy/sell candidates.
 - **Buy gate:** new risky exposure is blocked unless recovery evidence is visible.
 
-![CHRL architecture](docs/chrl_architecture.svg)
+![CHRL architecture](docs/chrl_architecture.png)
 
 ## Why This Model Exists
 
