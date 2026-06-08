@@ -56,6 +56,12 @@ The current favorite CHRL candidate was trained/evaluated in walk-forward valida
 
 ![CHRL validation metrics](docs/chrl_validation_metrics.png)
 
+The important comparison is not just the standalone Sharpe. CHRL is a constrained portfolio controller, so the right question is:
+
+> How much risky-market performance can it keep while reducing downside?
+
+![CHRL benchmark comparison](docs/chrl_benchmark_comparison.png)
+
 | Metric | Mean Across Folds |
 | --- | ---: |
 | Validation return | **10.05%** |
@@ -64,7 +70,20 @@ The current favorite CHRL candidate was trained/evaluated in walk-forward valida
 | Mean cash weight | **41.24%** |
 | Mean daily turnover L1 | **0.84%** |
 
+Against the 100% risky equal-universe benchmark on the same validation windows:
+
+| Comparison | CHRL | Benchmark |
+| --- | ---: | ---: |
+| Return | **10.05%** | 17.09% |
+| Sharpe | **1.09** | 1.17 |
+| Max drawdown | **-7.34%** | -15.27% |
+| Return / drawdown | **1.37** | 1.12 |
+
+In plain terms: CHRL captured about **93% of benchmark Sharpe** while cutting benchmark drawdown by about **52%**.
+It is a risk-managed policy, not a pure all-risk bull-market benchmark chaser.
+
 Fold-level numbers are in [docs/chrl_validation_metrics.csv](docs/chrl_validation_metrics.csv).
+Benchmark comparison is in [docs/chrl_benchmark_comparison.csv](docs/chrl_benchmark_comparison.csv).
 
 ## Primitive-Level Scientific Result
 
